@@ -9,6 +9,7 @@
 这是一些对你有帮助的资源:
 
 String.charCodeAt()
+
 String.fromCharCode()
 
 
@@ -36,3 +37,5 @@ fearNotLetter("abce");
 ```
 
 遍历传进来的字符，变量strs 通过计算Unicode值是不是相邻的字母 如果大于1 则说明不是相邻的并且返回后面的一位字母，如果是相邻的则返回undefined
+
+参考文档：https://blog.csdn.net/qq_37399074/article/details/68938315
