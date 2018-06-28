@@ -1,5 +1,5 @@
-## 算法学习
-### Freecodecamp社区的算法学习 
+# 算法学习和面试题
+## Freecodecamp社区的算法学习 
 
 > [点我进去](https://github.com/xiaotiandada/algorithm/tree/master/freecodecamp)
 
@@ -7,7 +7,7 @@
 
 [Boowho](https://github.com/xiaotiandada/algorithm/tree/master/freecodecamp/Boowho)
 
-### leetcode
+## leetcode
 
 > https://leetcode-cn.com/
 
