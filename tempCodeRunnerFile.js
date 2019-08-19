@@ -7,11 +7,17 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let vertexLen = 0
+// question方法
+rl.question('Please input a word: ', function(answer){
+  console.log('You have entered {%s}', answer.toUpperCase());
+  // 不加close，则不会结束
+  rl.close();
+});
 
-const go = len => {
-let vertexLen = len
+
+let vertexLen = 6; // 顶点数
 let vertex = new Map(); // 顶点数据集合 map 可以设置键对值 0 1 2 3 4 5 or 1 2 3 4 5 6 or A B C D E F G ... ...
+
 /**
  * 设置顶点
  * @param {String || Number} v 顶点
@@ -29,7 +35,6 @@ const setVertexEdge = (v1, v2) => {
 
 // 设置点
 for (let i = 1; i <= vertexLen; i++) setVertex(i);
-
 
 // 定义边
 let vertexEdge = [[1, 4], [2, 4], [3, 4], [4, 5], [5, 6]];
@@ -66,15 +71,4 @@ let z1 = dfs(dep);
 console.log(z1);
 
 // console.log(vertex);
-
-}
-
-// question方法
-rl.question('Please input vertex: ', function(answer){
-  // console.log('You have entered {%s}', answer.toUpperCase());
-  vertexLen = parseInt(answer.toUpperCase())
-  go(vertexLen)
-  // 不加close，则不会结束
-  rl.close();
-});
 
