@@ -1,17 +1,19 @@
-//引入readline模块
-const readline = require('readline');
+// //引入readline模块
+// const readline = require('readline');
 
-//创建readline接口实例
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// //创建readline接口实例
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 
-let vertexLen = 0
 
-const go = len => {
+const go = (len, edge) => {
 let vertexLen = len
 let vertex = new Map(); // 顶点数据集合 map 可以设置键对值 0 1 2 3 4 5 or 1 2 3 4 5 6 or A B C D E F G ... ...
+// 定义边
+let vertexEdge = edge
+
 /**
  * 设置顶点
  * @param {String || Number} v 顶点
@@ -30,9 +32,6 @@ const setVertexEdge = (v1, v2) => {
 // 设置点
 for (let i = 1; i <= vertexLen; i++) setVertex(i);
 
-
-// 定义边
-let vertexEdge = [[1, 4], [2, 4], [3, 4], [4, 5], [5, 6]];
 
 // 设置边
 for (let i = 0; i < vertexEdge.length; i++)
@@ -65,16 +64,44 @@ let z1 = dfs(dep);
 
 console.log(z1);
 
-// console.log(vertex);
+}
 
+const dealWith = str => strSplit = str.split(' ').join('').slice(1).match(/\w{2}/g)
+const strArrToNumberArr = strArr => {
+  let arr = []
+  strArr.map((x, i) => {
+    let arrChild = []
+    arrChild[0] = parseInt(x.slice(0, 1))
+    arrChild[1] = parseInt(x.slice(1))
+    arr.push(arrChild)
+  })
+  return arr
 }
 
 // question方法
-rl.question('Please input vertex: ', function(answer){
-  // console.log('You have entered {%s}', answer.toUpperCase());
-  vertexLen = parseInt(answer.toUpperCase())
-  go(vertexLen)
-  // 不加close，则不会结束
-  rl.close();
-});
+// rl.question('Please input vertex: ', function(answer){
+//   // console.log('You have entered {%s}', answer.toUpperCase(), typeof );
+//   // vertexLen = parseInt(answer.toUpperCase())
+//   // let test = '6 1 4 2 4 3 4 4 5 5 6'
+//   let test = answer.toUpperCase()
+//   go(test.slice(0, 1), strArrToNumberArr(dealWith(test)))
+//   // 不加close，则不会结束
+//   rl.close();
+// });
 
+
+
+// let a = strArrToNumberArr(
+// ["1 4", "2 4", "3 4", "4 5", "5 6"]
+// )
+
+// console.log(a)
+
+
+// let i = ''
+// process.stdin.on('data', c => i += c)
+// process.stdin.on('end', () => {
+//     const {EOL} = require('os')
+//     const lines = i.split(EOL) /*your input text, split by lines*/
+//   go(parseInt(lines[0]), strArrToNumberArr(lines.slice(1)))
+// })
