@@ -49,4 +49,27 @@ function quickSort1(array, start, end) {
     return array
 }
 
-console.log(quickSort1(list, 0, list.length))
+// console.log(quickSort1(list, 0, list.length))
+
+// 复习
+function quickSort2(array) {
+    if (array.length <= 1) {
+        return array
+    }
+
+    let target = array[0]
+    let left = []
+    let right = []
+
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < target) {
+            left.push(array[i])
+        } else {
+            right.push(array[i])
+        }
+    }
+
+    return quickSort2(left).concat([target], quickSort2(right))
+}
+
+console.log(quickSort2(list))
