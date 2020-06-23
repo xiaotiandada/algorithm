@@ -1,5 +1,12 @@
 let list = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8];
 
+let lists = []
+for(let i = 0; i <=10; i++) {
+    lists.splice(Math.random() * lists.length - 1, 0, i)
+}
+
+console.log(lists)
+
 function quickSort(array) {
     if (array.length <= 1) {
         return array
@@ -72,4 +79,6 @@ function quickSort2(array) {
     return quickSort2(left).concat([target], quickSort2(right))
 }
 
-console.log(quickSort2(list))
+console.time('quickSort')
+console.log(quickSort2(lists))
+console.timeEnd('quickSort')
