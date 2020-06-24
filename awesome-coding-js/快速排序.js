@@ -1,11 +1,24 @@
 let list = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8];
 
-let lists = []
-for(let i = 0; i <=10; i++) {
-    lists.splice(Math.random() * lists.length - 1, 0, i)
+// let lists = []
+// for(let i = 0; i <=10; i++) {
+//     lists.splice(Math.floor(Math.random() * lists.length + 1), 0, i)
+// }
+
+// console.log(lists)
+
+let ageLists = []
+for(let i = 0; i <=100; i++) {
+    let id = Math.floor(Math.random() * 100 + 1)
+    ageLists.push({
+        id: id,
+        age: Math.floor(Math.random() * 40 + 1),
+        name: `学号${i}`,
+        type: 'student'
+    })
 }
 
-console.log(lists)
+console.log(ageLists)
 
 function quickSort(array) {
     if (array.length <= 1) {
@@ -79,6 +92,31 @@ function quickSort2(array) {
     return quickSort2(left).concat([target], quickSort2(right))
 }
 
-console.time('quickSort')
-console.log(quickSort2(lists))
-console.timeEnd('quickSort')
+// console.time('quickSort')
+// console.log(quickSort2(lists))
+// console.timeEnd('quickSort')
+
+
+function quickSortObj(array, key) {
+    if (array.length <= 1) {
+        return array
+    }
+
+    let target = array[0]
+    let left = []
+    let right = []
+
+    for (let i = 1; i < array.length; i++) {
+        if (array[i][key] < target[key]) {
+            left.push(array[i])
+        } else {
+            right.push(array[i])
+        }
+    }
+
+    return quickSortObj(left, key).concat([target], quickSortObj(right, key))
+}
+
+console.time('quickSortObj')
+console.log(quickSortObj(ageLists, 'id'))
+console.timeEnd('quickSortObj')
