@@ -1,7 +1,7 @@
 let list = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8];
 
 // let lists = []
-// for(let i = 0; i <=10000; i++) {
+// for(let i = 0; i <=10; i++) {
 //     lists.splice(Math.floor(Math.random() * lists.length + 1), 0, i)
 // }
 
@@ -92,7 +92,6 @@ function quickSortObj(array, key) {
 // console.log(quickSortObj(ageLists, 'id'))
 // console.timeEnd('quickSortObj')
 
-// array 数据大才能体现优势
 function quickSort2(array, start, end) {
     if (end - start < 1) {
         return
@@ -103,11 +102,11 @@ function quickSort2(array, start, end) {
     let r = end // 记录一个索引r从数组右侧开始
 
     while(l < r) { // 在l<r的条件下
-        while(l < r && array[r] >= target) { // 找到 右侧小于 target的 array[r] 值 并赋值到 array[l]
+        while(l < r && array[r] >= target) { // 找到 右侧大于 target的 array[r] 值 并赋值到 array[l]
             r--
         }
         array[l] = array[r]
-        while(l < r && array[l] < target) { // 找到左侧 大于 target 的 array[l] 值 并赋值到 array[r]
+        while(l < r && array[l] < target) { // 找到左侧 小于 target 的 array[l] 值 并赋值到 array[r]
             l++
         }
         array[r] = array[l]
@@ -119,69 +118,4 @@ function quickSort2(array, start, end) {
     return array
 }
 
-// console.time('quickSort2')
-// console.log(quickSort2(list, 0, list.length - 1))
-// console.timeEnd('quickSort2')
-
-
-function quickSort21(array, start, end) {
-    if (end - start < 1) {
-        return 
-    }
-
-    let target = array[start]
-    let l = start
-    let r = end
-
-    while (l < r) {
-        while (l < r && array[r] >= target) {
-            r--
-        }
-        array[l] = array[r]
-
-        while (l < r && array[l] < target) {
-            l++
-        }
-        array[r] = array[l]
-    }
-
-    array[l] = target
-
-    quickSort21(array, start, l - 1)
-    quickSort21(array, l + 1, end)
-    return array
-}
-
-console.time('quickSort21')
-console.log(quickSort21(list, 0, list.length - 1))
-console.timeEnd('quickSort21')
-
-
-function quickSort22(array, start, end) {
-    if (end - start < 1) return
-
-    let target = array[start]
-    let l = start
-    let r = end
-
-    while (l < r) {
-        while (l < r && array[r] >= target) {
-            r--
-        }
-        array[l] = array[r]
-        while (l < r && array[l] < target) {
-            l++
-        }
-        array[r] = array[l]
-    }
-
-    array[l] = target
-
-    quickSort22(array, start, l-1)
-    quickSort22(array, l+1, end)
-    return array
-}
-
-console.time('quickSort22')
-console.log(quickSort22(list, 0, list.length - 1))
-console.timeEnd('quickSort22')
+console.log(quickSort2(list, 0, list.length))
