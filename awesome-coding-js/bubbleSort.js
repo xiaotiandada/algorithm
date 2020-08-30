@@ -25,4 +25,6 @@ function bubbleSort(array) {
 }
 
 
+console.time('quickSort')
 console.log('lists', bubbleSort(lists))
+console.timeEnd('quickSort')
