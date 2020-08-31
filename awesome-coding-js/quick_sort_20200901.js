@@ -10,7 +10,8 @@ function quickSort(array) {
     var target = array[0];
     var left = [];
     var right = [];
-    for (var i = 1; i < array.length; i++) {
+    var len = array.length;
+    for (var i = 1; i < len; i++) {
         if (array[i] < target) {
             left.push(array[i]);
         }
@@ -20,4 +21,6 @@ function quickSort(array) {
     }
     return quickSort(left).concat([target], quickSort(right));
 }
+console.time('quickSort');
 console.log('quickSort', quickSort(lists));
+console.timeEnd('quickSort');

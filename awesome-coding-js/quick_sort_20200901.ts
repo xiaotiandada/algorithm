@@ -15,8 +15,9 @@ function quickSort(array: number[]): number[] {
   let target: number = array[0]
   let left: number[] = []
   let right: number[] = []
+  let len: number = array.length
 
-  for (let i = 1; i < array.length; i++) {
+  for (let i = 1; i < len; i++) {
     if (array[i] < target) {
       left.push(array[i])
     } else {
@@ -26,5 +27,6 @@ function quickSort(array: number[]): number[] {
 
   return quickSort(left).concat([target], quickSort(right))
 }
-
+console.time('quickSort')
 console.log('quickSort', quickSort(lists))
+console.timeEnd('quickSort')
